@@ -12,8 +12,18 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "annysahbucket" {
-  bucket = "annysah-gay-practice"
+  bucket = "annysah-website-practice"
 }
+
+resource "aws_s3_account_public_access_block" "bucket_access_block" {
+  bucket = aws_s3_bucket.bucket.id
+
+  block_public_acls = false
+  block_public_policy = false
+  ignore_public_acls = false
+  restrict_public_buckets = false
+}
+
 
 resource "tls_private_key" "priv_key" {
   algorithm = "RSA"
