@@ -10,26 +10,15 @@ resource "aws_subnet" "new_subnet" {
   map_public_ip_on_launch = true  
 }
 
-resource "aws_security_group" "allow_ssh" {
-  name        = "allow_ssh"
-  vpc_id      = aws_vpc.new.id
 
-  ingress {
-    description = "Allow SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # Change to a specific IP range if security is a concern
-  }
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.new.id
+  tags = {
+    Name = "main"
   }
 }
-
 
 
 resource "aws_eip" "ip-test" {
@@ -39,7 +28,7 @@ resource "aws_eip" "ip-test" {
 resource "aws_route_table" "route-table-test-env" {
   vpc_id = "${aws_vpc.new.id}"
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block = "00.0.0.0/0"
     gateway_id = "${aws_internet_gateway.gw.id}"
   }
 }
