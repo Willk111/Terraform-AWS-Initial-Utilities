@@ -28,7 +28,7 @@ resource "aws_eip" "ip-test" {
 resource "aws_route_table" "route-table-test-env" {
   vpc_id = "${aws_vpc.new.id}"
   route {
-    cidr_block = "00.0.0.0/0"
+    cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_internet_gateway.gw.id}"
   }
 }
