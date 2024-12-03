@@ -1,0 +1,10 @@
+sanity/.terraform/providers/registry.terraform.io/hashicorp/tls/4.0.6/linux_amd64/LICENSE.txt
+sanity/.terraform/providers/registry.terraform.io/hashicorp/local/2.5.2/linux_amd64/LICENSE.txt
+sanity/.terraform/providers/registry.terraform.io/hashicorp/aws/5.66.0/linux_amd64/LICENSE.txt
+sanity/terraform.tfstate
+sanity/terraform.tfstate.backup
+sanity/.terraform/providers/registry.terraform.io/hashicorp/aws/5.66.0/linux_amd64/terraform-provider-aws_v5.66.0_x5
+sanity/.terraform/providers/registry.terraform.io/hashicorp/tls/4.0.6/linux_amd64/terraform-provider-tls_v4.0.6_x5
+sanity/.terraform/providers/registry.terraform.io/hashicorp/local/2.5.2/linux_amd64/terraform-provider-local_v2.5.2_x5
+sanity/.terraform.lock.hcl
+sanity/.gitignore

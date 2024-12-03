@@ -1,9 +1,9 @@
 variable "key_name" {
   description = "The name of the key pair"
-  type = string
+  type        = string
 }
 
 variable "file_name" {
   description = "Dev_key"
-  type = string
+  type        = string
 }
