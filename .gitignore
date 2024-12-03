@@ -8,3 +8,5 @@ sanity/.terraform/providers/registry.terraform.io/hashicorp/tls/4.0.6/linux_amd6
 sanity/.terraform/providers/registry.terraform.io/hashicorp/local/2.5.2/linux_amd64/terraform-provider-local_v2.5.2_x5
 sanity/.terraform.lock.hcl
 sanity/.gitignore
+.gitignore
+.gitignore
