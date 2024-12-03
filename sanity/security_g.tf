@@ -1,4 +1,4 @@
-resource "aws_security_group" "allow_ssh" {
+resource "aws_security_group" "allow_ssh" { # This allows ssh traffic to virtual machines 
   name   = "allow_ssh"
   vpc_id = aws_vpc.new.id
 
@@ -20,7 +20,7 @@ resource "aws_security_group" "allow_ssh" {
 
 
 
-resource "aws_security_group" "instance_sg" {
+resource "aws_security_group" "instance_sg" { # Allows HTTP trafic to deployed virtual machines
   name        = "webserver_sg"
   description = "Allows inbound SSH and HTTP traffic"
   vpc_id      = aws_vpc.new.id
@@ -59,26 +59,4 @@ resource "aws_security_group" "instance_sg" {
 }
 
 
-resource "tls_private_key" "dev_key" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
 
-resource "aws_key_pair" "generated_key" {
-  key_name   = var.key_name
-  public_key = tls_private_key.dev_key.public_key_openssh
-}
-
-locals {
-  priv_keys = tolist(tls_private_key.dev_key[*].private_key_pem)
-}
-
-output "private_key" {
-  value     = tls_private_key.dev_key.private_key_pem
-  sensitive = true
-}
-
-resource "local_file" "dev_key_ready" {
-  filename = var.file_name
-  content  = tls_private_key.dev_key.private_key_pem
-}
