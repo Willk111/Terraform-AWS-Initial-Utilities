@@ -82,3 +82,6 @@ resource "aws_instance" "webserver" { # A server running ubuntu server
 output "public_ip" { # Outputs the public ip to commandline after "terraform apply"
   value = aws_instance.webserver.public_ip
 }
+
+
+
