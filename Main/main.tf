@@ -49,7 +49,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "s3encryption" { #
 
 resource "aws_instance" "app_server" { # Basic Desktop running ubuntu
   ami                    = "ami-0866a3c8686eaeeba"
-  instance_type          = "t2.micro"
+  instance_type          = "t2.large"
   key_name               = aws_key_pair.ubuntuDT_key_pair.key_name
   subnet_id              = aws_subnet.new_subnet.id
   vpc_security_group_ids = [aws_security_group.allow_ssh.id] 
